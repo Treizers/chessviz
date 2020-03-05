@@ -25,5 +25,6 @@ int main()
                {'1', 'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'},
                {' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'}};
     Chessplace(pole);
+    cout << "Hello";
     return 0;
 }
