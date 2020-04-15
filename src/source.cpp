@@ -36,7 +36,6 @@ void kot(char turn[], int h, int move1, int move2, char pole[][9])
         h = 8;
         break;
     }
-
     s[0] = turn[1];
 
     move1 = atoi(s.c_str());
