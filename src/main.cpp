@@ -26,6 +26,5 @@ int main()
         kot(turn, h, move1, move2, pole);
         Chessplace(pole);
     }
-
     return 0;
 }
