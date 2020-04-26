@@ -1,15 +1,12 @@
-#include "Header.h"
-#include <Math.h>
+#include "header.h"
 #include <iostream>
-#include <string>
+#include <cstring>
 
 using namespace std;
 
 int main()
 {
     char turn[6];
-    int h = 0;
-    int move1 = 0, move2 = 0;
 
     char pole[9][9] = {{'1', 'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
                        {'2', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
@@ -23,7 +20,7 @@ int main()
     Chessplace(pole);
 
     while (1) {
-        kot(turn, h, move1, move2, pole);
+        move(turn, pole);
         Chessplace(pole);
     }
     return 0;
