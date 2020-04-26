@@ -1,8 +1,7 @@
-#pragma once
 #ifndef ADD_H
 #define ADD_H
-
-void kot(char turn[], int h, int move1, int move2, char pole[][9]);
+void move(char turn[], char pole[][9]);
 void Chessplace(char pole[][9]);
-
+void movePawn(char pole[][9]);
+bool Check(char turn[], char pole[][9]);
 #endif
