@@ -1,6 +1,6 @@
 #include "header.h"
-#include <iostream>
 #include <cstring>
+#include <iostream>
 
 using namespace std;
 
