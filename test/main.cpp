@@ -15,37 +15,32 @@ char pole[9][9] = {{'1', 'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
                    {'8', 'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'},
                    {' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'}};
 
-TEST_CASE("MovePawn_1", "Correct")
-{
-    int Qualifier = 0;
-    char turn[6] = "e2-e4";
-    REQUIRE(Check(turn, pole, Qualifier) == true);
+TEST_CASE("MovePawn_1", "Correct") {
+  int Qualifier = 0;
+  char turn[6] = "e2-e4";
+  REQUIRE(Check(turn, pole, Qualifier) == true);
 }
 
-TEST_CASE("MovePawn_2", "Incorrect")
-{
-    int Qualifier = 0;
-    char turn[6] = "e9-e4";
-    REQUIRE(Check(turn, pole, Qualifier) == false);
+TEST_CASE("MovePawn_2", "Incorrect") {
+  int Qualifier = 0;
+  char turn[6] = "e9-e4";
+  REQUIRE(Check(turn, pole, Qualifier) == false);
 }
 
-TEST_CASE("MovePawn_3", "Incorrect")
-{
-    int Qualifier = 0;
-    char turn[6] = "e2-e0";
-    REQUIRE(Check(turn, pole, Qualifier) == false);
+TEST_CASE("MovePawn_3", "Incorrect") {
+  int Qualifier = 0;
+  char turn[6] = "e2-e0";
+  REQUIRE(Check(turn, pole, Qualifier) == false);
 }
 
-TEST_CASE("MoveFigure_Q_1", "Correct")
-{
-    int Qualifier = 1;
-    char turn[7] = "Qd8-d4";
-    REQUIRE(Check(turn, pole, Qualifier) == true);
+TEST_CASE("MoveFigure_Q_1", "Correct") {
+  int Qualifier = 1;
+  char turn[7] = "Qd8-d4";
+  REQUIRE(Check(turn, pole, Qualifier) == true);
 }
 
-TEST_CASE("MoveFigure_N_2", "Incorrect")
-{
-    int Qualifier = 1;
-    char turn[7] = "Nd0-d3";
-    REQUIRE(Check(turn, pole, Qualifier) == false);
+TEST_CASE("MoveFigure_N_2", "Incorrect") {
+  int Qualifier = 1;
+  char turn[7] = "Nd0-d3";
+  REQUIRE(Check(turn, pole, Qualifier) == false);
 }
