@@ -1,13 +1,13 @@
 g = g++
-CFLAGS = -Wall -Werror -MP -MMD
+CFLAGS = -Wall -Werror -MP -MMD -std=c++14
 
 .PHONY: clean run all
 
-all: ./bin/source.exe
+all: ./bin/source
 
 -include build/src/*.d
 
-./bin/source.exe: ./build/main.o ./build/draw.o ./build/source.o
+./bin/source: ./build/main.o ./build/draw.o ./build/source.o
 		$(g) $(CFLAGS) -o ./bin/source ./build/main.o ./build/source.o ./build/draw.o
 
 ./build/main.o: ./src/main.cpp ./src/header.h
@@ -19,8 +19,22 @@ all: ./bin/source.exe
 ./build/source.o: ./src/source.cpp ./src/header.h
 		$(g) $(CFLAGS) -o ./build/source.o -c ./src/source.cpp
 
+test: bin/chessviz-test
+
+bin/chessviz-test: build/test/main.o build/test/source.o
+		$(g) -o bin/chessviz-test build/test/main.o build/test/source.o
+
+build/test/main.o: test/main.cpp
+		$(g) $(CFLAGS) -o build/test/main.o -c test/main.cpp
+
+build/test/source.o: src/source.cpp
+		$(g) $(CFLAGS) -o build/test/source.o -c src/source.cpp
+
 clean:
 		rm -rf build/*.o build/*.d
 
 run:
 		./bin/source
+
+testRun:
+		./bin/chessviz-test
