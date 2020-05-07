@@ -1,5 +1,5 @@
 g = g++
-CFLAGS = -Wall -Werror -MP -MMD
+CFLAGS = -Wall -Werror -MP -MMD -std=c++14
 
 .PHONY: clean run all
 
@@ -19,7 +19,7 @@ all: ./bin/source
 ./build/source.o: ./src/source.cpp ./src/header.h
 		$(g) $(CFLAGS) -o ./build/source.o -c ./src/source.cpp
 
-test: create bin/chessviz-test
+test: bin/chessviz-test
 
 bin/chessviz-test: build/test/main.o build/test/source.o
 		$(g) -o bin/chessviz-test build/test/main.o build/test/source.o
@@ -27,12 +27,8 @@ bin/chessviz-test: build/test/main.o build/test/source.o
 build/test/main.o: test/main.cpp
 		$(g) $(CFLAGS) -o build/test/main.o -c test/main.cpp
 
-
 build/test/source.o: src/source.cpp
 		$(g) $(CFLAGS) -o build/test/source.o -c src/source.cpp
-
-create:
-		mkdir -p bin/temp build/src build/test
 
 clean:
 		rm -rf build/*.o build/*.d
