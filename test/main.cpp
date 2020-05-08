@@ -37,7 +37,7 @@ TEST_CASE("MovePawn_3", "Incorrect_pawn_move_from_outside_the_MinBound") {
 TEST_CASE("MovePawn_4", "Incorrect_move_ with_an_empty_cage") {
   int Qualifier = 0;
   char turn[6] = "e4-e2";
-  REQUIRE(Check(turn, pole, Qualifier) == true);
+  REQUIRE(Check(turn, pole, Qualifier) == false);
 }
 
 TEST_CASE("MoveFigure_1", "Correct_figure_move") {
@@ -61,5 +61,5 @@ TEST_CASE("MoveFigure_3", "Incorrect_figure_move_from_outside_the_MaxBound") {
 TEST_CASE("MoveFigure_4", "Incorrect_move_with_an_empty_cage") {
   int Qualifier = 1;
   char turn[7] = "Nd6-d4";
-  REQUIRE(Check(turn, pole, Qualifier) == true);
+  REQUIRE(Check(turn, pole, Qualifier) == false);
 }
