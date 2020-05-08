@@ -118,7 +118,8 @@ bool Check(char turn[], char pole[][9], int Qualifier) {
   if (NumberBoard1 <= BoundMin || NumberBoard1 >= BoundMax ||
       LetterBoard1 <= BoundMin || LetterBoard1 >= BoundMax ||
       NumberBoard2 <= BoundMin || NumberBoard2 >= BoundMax ||
-      LetterBoard2 <= BoundMin || LetterBoard2 >= BoundMax) {
+      LetterBoard2 <= BoundMin || LetterBoard2 >= BoundMax ||
+      (pole[NumberBoard1 - 1][LetterBoard1] == ' ')) {
     cout << "Entry incorrect" << endl << endl;
     return false;
   }
