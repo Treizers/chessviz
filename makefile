@@ -21,17 +21,14 @@ all: ./bin/source
 
 test: bin/chessviz-test
 
-bin/chessviz-test: build/test/main.o build/test/source.o
-		$(g) -o bin/chessviz-test build/test/main.o build/test/source.o
+bin/chessviz-test: build/test/main.o build/source.o
+		$(g) -o bin/chessviz-test build/test/main.o build/source.o
 
 build/test/main.o: test/main.cpp
 		$(g) $(CFLAGS) -o build/test/main.o -c test/main.cpp
 
-build/test/source.o: src/source.cpp
-		$(g) $(CFLAGS) -o build/test/source.o -c src/source.cpp
-
 clean:
-		rm -rf build/*.o build/*.d
+		rm -rf build/*.o build/*.d build/test/*.o build/test/*.d
 
 run:
 		./bin/source
