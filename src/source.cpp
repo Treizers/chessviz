@@ -72,6 +72,10 @@ bool Check(char turn[], char pole[][9], int Qualifier) {
   case 'h':
     LetterBoard1 = 8;
     break;
+  default: {
+    cout << "ERROR" << endl << endl;
+    return false;
+  }; break;
   }
 
   switch (turn[3 + Qualifier]) {
@@ -99,7 +103,12 @@ bool Check(char turn[], char pole[][9], int Qualifier) {
   case 'h':
     LetterBoard2 = 8;
     break;
+  default: {
+    cout << "Entry incorrect" << endl << endl;
+    return false;
+  }; break;
   }
+
   s[0] = turn[1 + Qualifier];
   NumberBoard1 = atoi(s.c_str());
 
@@ -110,7 +119,7 @@ bool Check(char turn[], char pole[][9], int Qualifier) {
       LetterBoard1 <= BoundMin || LetterBoard1 >= BoundMax ||
       NumberBoard2 <= BoundMin || NumberBoard2 >= BoundMax ||
       LetterBoard2 <= BoundMin || LetterBoard2 >= BoundMax) {
-    cout << "Entry incorrect, out of bounds" << endl << endl;
+    cout << "Entry incorrect" << endl << endl;
     return false;
   }
   return true;
